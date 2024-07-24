@@ -16,25 +16,25 @@ class MapsRoutes {
   }
 
   /// Function that creates a route between two points with directions API
-  _createRouteFragment(
-    double startLat,
-    double startLon,
-    double endLat,
-    double endLon,
-    String routeName,
-    Color routeColor,
-    String googleApiKey,
-    TravelMode travelMode,
-  ) async {
+  _createRouteFragment(double startLat,
+      double startLon,
+      double endLat,
+      double endLon,
+      String routeName,
+      Color routeColor,
+      String googleApiKey,
+      TravelMode travelMode,) async {
     late PolylinePoints routePoints = PolylinePoints();
     List<LatLng> routeCoordinates = [];
 
     /// If the coordinates are not null, it creates a route between the two points
     PolylineResult result = await routePoints.getRouteBetweenCoordinates(
-      googleApiKey,
-      PointLatLng(startLat, startLon),
-      PointLatLng(endLat, endLon),
-      travelMode: travelMode,
+      googleApiKey: googleApiKey,
+      request: PolylineRequest(
+        origin: PointLatLng(startLat, startLon),
+        destination: PointLatLng(endLat, endLon),
+        mode: travelMode,
+      ),
     );
 
     /// Adds coordinates to the route coordinates list

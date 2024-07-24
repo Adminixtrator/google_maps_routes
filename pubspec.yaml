@@ -5,12 +5,11 @@ homepage: https://github.com/aikenahac/google_maps_routes#readme
 
 environment:
   sdk: '>=3.0.6 <4.0.0'
-  flutter: ">=1.17.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  flutter_polyline_points: ^1.0.0
+  flutter_polyline_points: ^2.1.0
   google_maps_flutter: ^2.0.3
 
 dev_dependencies:
